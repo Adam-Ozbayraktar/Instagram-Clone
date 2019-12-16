@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   material_design_icons_flutter: ^3.3.4595
+  photo_view: ^0.9.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -61,6 +62,9 @@ flutter:
     - family: Emotion
       fonts:
         - asset: assets/icons/Emotion.ttf
+    - family: Acme
+      fonts:
+        - asset: assets/fonts/Acme-Regular.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

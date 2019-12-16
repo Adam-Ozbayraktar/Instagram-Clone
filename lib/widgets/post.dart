@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:photo_view/photo_view.dart';
 
 import './footer.dart';
 
@@ -73,6 +74,9 @@ class Post extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: FittedBox(
                   child: Image.asset('assets/images/posts/$index.jpg'),
+                  // child: PhotoView(
+                    // imageProvider: AssetImage('assets/images/posts/$index.jpg'),
+                  // ),
                   fit: BoxFit.fill,
                 ),
               ),
