@@ -4,13 +4,13 @@ import 'dart:math';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../emotion_icons.dart';
 
-  // var randomNumber = Random();
+// var randomNumber = Random();
 
-  // int _hearts = randomNumber.nextInt(100);
-  // int _thumbsUp = randomNumber.nextInt(100);
-  // int _displeased = randomNumber.nextInt(100);
-  // int _angry = randomNumber.nextInt(100);
-  // int _sad = randomNumber.nextInt(100);
+// int _hearts = randomNumber.nextInt(100);
+// int _thumbsUp = randomNumber.nextInt(100);
+// int _displeased = randomNumber.nextInt(100);
+// int _angry = randomNumber.nextInt(100);
+// int _sad = randomNumber.nextInt(100);
 
 class Footer extends StatefulWidget {
   int hearts;
@@ -31,21 +31,12 @@ class _FooterState extends State<Footer> {
   bool _isAngry = false;
   bool _isSad = false;
 
-  // void assignRandom() {
-  //   var randomNumber = Random();
-  //   _hearts = randomNumber.nextInt(100);
-  //   _thumbsUp = randomNumber.nextInt(100);
-  //   _displeased = randomNumber.nextInt(100);
-  //   _angry = randomNumber.nextInt(100);
-  //   _sad = randomNumber.nextInt(100);
-  // }
-
   void _toggleReaction(String reaction) {
     switch (reaction) {
       case "heart":
         {
           setState(() {
-            if (_isHeart & _isReacted) {
+            if (_isHeart) {
               _isHeart = false;
               _isReacted = false;
               widget.hearts -= 1;

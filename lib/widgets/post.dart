@@ -4,28 +4,9 @@ import 'package:photo_view/photo_view.dart';
 import 'dart:math';
 
 import './footer.dart';
-
+import './image.dart';
+import './altfooter.dart';
 class Post extends StatelessWidget {
-  // int hearts;
-  // int thumbsUp;
-  // int displeased;
-  // int angry;
-  // int sad;
-  // var randomNumber = Random();
-  // hearts = randomNumber.nextInt(100);
-  // thumbsUp = randomNumber.nextInt(100);
-  // displeased = randomNumber.nextInt(100);
-  // angry = randomNumber.nextInt(100);
-  // sad = randomNumber.nextInt(100);
-  // void assignRandom() {
-  //   var randomNumber = Random();
-  //   int hearts = randomNumber.nextInt(100);
-  //   int thumbsUp = randomNumber.nextInt(100);
-  //   int displeased = randomNumber.nextInt(100);
-  //   int angry = randomNumber.nextInt(100);
-  //   int sad = randomNumber.nextInt(100);
-  // }
-
   @override
   Widget build(BuildContext context) {
     var randomNumber = Random();
@@ -44,13 +25,20 @@ class Post extends StatelessWidget {
                   // crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     // child: Image.asset('assets/images/profile-picture.jpg'),
-                    Padding(
-                      padding: EdgeInsets.all(0),
-                      child: CircleAvatar(
-                        backgroundImage:
-                            AssetImage('assets/images/profile/$index.jpg'),
-                        radius: 20,
+                    GestureDetector(
+                      child: Padding(
+                        padding: EdgeInsets.all(0),
+                        child: CircleAvatar(
+                          backgroundImage:
+                              AssetImage('assets/images/profile/$index.jpg'),
+                          radius: 20,
+                        ),
                       ),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return DetailScreen(index);
+                        }));
+                      },
                     ),
 
                     Container(
@@ -80,40 +68,79 @@ class Post extends StatelessWidget {
                     //   width: 190,
                     // ),
                     Container(
-                      child: IconButton(
-                        iconSize: 30,
-                        icon: Icon(Icons.more_vert),
+                        // child: IconButton(
+                        child: PopupMenuButton(
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+                          child: Text('Report'),
+                        ),
+                        PopupMenuItem(
+                          child: Text('Share'),
+                        ),
+                        PopupMenuItem(
+                          child: Text('Unfollow'),
+                        ),
+                      ],
+                    )
+                        // iconSize: 30,
+                        // icon: Icon(Icons.more_vert),
                         // icon: Icon(MdiIcons.heart, color: Colors.red),
                         // icon: Icon(MdiIcons.heartOutline),
-                        onPressed: () {},
-                      ),
-                    ),
+                        // onPressed: () {},
+                        // ),
+                        ),
                   ],
                 ),
               ),
+              // PostImage(index),
               Container(
                 height: 400,
                 width: MediaQuery.of(context).size.width,
-                child: FittedBox(
-                  child: Image.asset('assets/images/posts/$index.jpg'),
-                  // child: PhotoView(
-                  // imageProvider: AssetImage('assets/images/posts/$index.jpg'),
-                  // ),
-                  fit: BoxFit.fill,
+                child: ClipRect(
+                  // child: Image.asset('assets/images/posts/$index.jpg'),
+                  child: PhotoView(
+                    imageProvider: AssetImage(
+                      'assets/images/posts/$index.jpg',
+                    ),
+                    minScale: PhotoViewComputedScale.contained * 1,
+                    maxScale: PhotoViewComputedScale.covered * 1.8,
+                    initialScale: PhotoViewComputedScale.covered * 1,
+                  ),
                 ),
               ),
-              Footer(
-                hearts: randomNumber.nextInt(100),
-                thumbsUp: randomNumber.nextInt(100),
-                displeased: randomNumber.nextInt(100),
-                angry: randomNumber.nextInt(100),
-                sad: randomNumber.nextInt(100),
-              ),
+              AltFooter(),
+              // Footer(
+              //   hearts: randomNumber.nextInt(100),
+              //   thumbsUp: randomNumber.nextInt(100),
+              //   displeased: randomNumber.nextInt(100),
+              //   angry: randomNumber.nextInt(100),
+              //   sad: randomNumber.nextInt(100),
+              // ),
             ],
           ),
         );
       },
       itemCount: 2,
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  final int index;
+
+  DetailScreen(this.index);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GestureDetector(
+        child: Center(
+          child: Image.asset('assets/images/profile/$index.jpg'),
+        ),
+        onTap: () {
+          Navigator.pop(context);
+        }
+      ),
     );
   }
 }
