@@ -13,13 +13,16 @@ class _AltFooterState extends State<AltFooter> {
 
   @override
   void initState() {
-    isSelected = [true, false, false, false, false];
+    isSelected = [false, false, false, false, false];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return ToggleButtons(
+      constraints: BoxConstraints.expand(width: 80, height: 50),
+      fillColor: Colors.white,
+      renderBorder: false,
       children: <Widget>[
         Icon(MdiIcons.heart),
         Icon(Emotion.emo_thumbsup),
@@ -29,7 +32,9 @@ class _AltFooterState extends State<AltFooter> {
       ],
       onPressed: (int index) {
         setState(() {
-          for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
+          for (int buttonIndex = 0;
+              buttonIndex < isSelected.length;
+              buttonIndex++) {
             if (buttonIndex == index) {
               isSelected[buttonIndex] = true;
             } else {
