@@ -1,12 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:photo_view/photo_view.dart';
+import 'dart:math';
 
 import './footer.dart';
 
 class Post extends StatelessWidget {
+  // int hearts;
+  // int thumbsUp;
+  // int displeased;
+  // int angry;
+  // int sad;
+  // var randomNumber = Random();
+  // hearts = randomNumber.nextInt(100);
+  // thumbsUp = randomNumber.nextInt(100);
+  // displeased = randomNumber.nextInt(100);
+  // angry = randomNumber.nextInt(100);
+  // sad = randomNumber.nextInt(100);
+  // void assignRandom() {
+  //   var randomNumber = Random();
+  //   int hearts = randomNumber.nextInt(100);
+  //   int thumbsUp = randomNumber.nextInt(100);
+  //   int displeased = randomNumber.nextInt(100);
+  //   int angry = randomNumber.nextInt(100);
+  //   int sad = randomNumber.nextInt(100);
+  // }
+
   @override
   Widget build(BuildContext context) {
+    var randomNumber = Random();
     return ListView.builder(
       itemBuilder: (ctx, index) {
         return Card(
@@ -75,17 +97,23 @@ class Post extends StatelessWidget {
                 child: FittedBox(
                   child: Image.asset('assets/images/posts/$index.jpg'),
                   // child: PhotoView(
-                    // imageProvider: AssetImage('assets/images/posts/$index.jpg'),
+                  // imageProvider: AssetImage('assets/images/posts/$index.jpg'),
                   // ),
                   fit: BoxFit.fill,
                 ),
               ),
-              Footer(),
+              Footer(
+                hearts: randomNumber.nextInt(100),
+                thumbsUp: randomNumber.nextInt(100),
+                displeased: randomNumber.nextInt(100),
+                angry: randomNumber.nextInt(100),
+                sad: randomNumber.nextInt(100),
+              ),
             ],
           ),
         );
       },
-      itemCount: 9,
+      itemCount: 2,
     );
   }
 }

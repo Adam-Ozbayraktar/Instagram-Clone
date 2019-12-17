@@ -1,36 +1,123 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../emotion_icons.dart';
 
+  // var randomNumber = Random();
+
+  // int _hearts = randomNumber.nextInt(100);
+  // int _thumbsUp = randomNumber.nextInt(100);
+  // int _displeased = randomNumber.nextInt(100);
+  // int _angry = randomNumber.nextInt(100);
+  // int _sad = randomNumber.nextInt(100);
+
 class Footer extends StatefulWidget {
+  int hearts;
+  int thumbsUp;
+  int displeased;
+  int angry;
+  int sad;
+  Footer({this.hearts, this.thumbsUp, this.displeased, this.angry, this.sad});
   @override
   _FooterState createState() => _FooterState();
 }
 
 class _FooterState extends State<Footer> {
+  bool _isReacted = false;
   bool _isHeart = false;
   bool _isThumbs = false;
   bool _isDispleased = false;
   bool _isAngry = false;
   bool _isSad = false;
 
-  int _hearts = 69;
-  int _thumbsUp = 0;
-  int _displeased = 0;
-  int _angry = 0;
-  int _sad = 0;
+  // void assignRandom() {
+  //   var randomNumber = Random();
+  //   _hearts = randomNumber.nextInt(100);
+  //   _thumbsUp = randomNumber.nextInt(100);
+  //   _displeased = randomNumber.nextInt(100);
+  //   _angry = randomNumber.nextInt(100);
+  //   _sad = randomNumber.nextInt(100);
+  // }
 
-  void _toggleHeart() {
-    setState(() {
-      if (_isHeart) {
-        _isHeart = false;
-        _hearts -= 1;
-      } else {
-        _isHeart = true;
-        _hearts += 1;
-      }
-    });
+  void _toggleReaction(String reaction) {
+    switch (reaction) {
+      case "heart":
+        {
+          setState(() {
+            if (_isHeart & _isReacted) {
+              _isHeart = false;
+              _isReacted = false;
+              widget.hearts -= 1;
+            } else {
+              _isHeart = true;
+              _isReacted = true;
+              widget.hearts += 1;
+            }
+          });
+        }
+        break;
+      case "thumbsUp":
+        {
+          setState(() {
+            if (_isThumbs) {
+              _isThumbs = false;
+              _isReacted = false;
+              widget.thumbsUp -= 1;
+            } else {
+              _isThumbs = true;
+              _isReacted = true;
+              widget.thumbsUp += 1;
+            }
+          });
+        }
+        break;
+      case "displeased":
+        {
+          setState(() {
+            if (_isDispleased) {
+              _isDispleased = false;
+              _isReacted = false;
+              widget.displeased -= 1;
+            } else {
+              _isDispleased = true;
+              _isReacted = true;
+              widget.displeased += 1;
+            }
+          });
+        }
+        break;
+      case "angry":
+        {
+          setState(() {
+            if (_isAngry) {
+              _isAngry = false;
+              _isReacted = false;
+              widget.angry -= 1;
+            } else {
+              _isAngry = true;
+              _isReacted = true;
+              widget.angry += 1;
+            }
+          });
+        }
+        break;
+      case "sad":
+        {
+          setState(() {
+            if (_isSad) {
+              _isSad = false;
+              _isReacted = false;
+              widget.sad -= 1;
+            } else {
+              _isSad = true;
+              _isReacted = true;
+              widget.sad += 1;
+            }
+          });
+        }
+        break;
+    }
   }
 
   @override
@@ -49,10 +136,10 @@ class _FooterState extends State<Footer> {
                         MdiIcons.heartOutline,
                         color: Colors.blueGrey,
                       )),
-                onPressed: _toggleHeart,
+                onPressed: () => _toggleReaction('heart'),
               ),
               Text(
-                '$_hearts',
+                '${widget.hearts}',
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -67,12 +154,12 @@ class _FooterState extends State<Footer> {
                 iconSize: 25,
                 icon: Icon(
                   Emotion.emo_thumbsup,
-                  color: (_isHeart ? Colors.lightBlue : Colors.blueGrey),
+                  color: (_isThumbs ? Colors.lightBlue : Colors.blueGrey),
                 ),
-                onPressed: () {},
+                onPressed: () => _toggleReaction('thumbsUp'),
               ),
               Text(
-                '$_hearts',
+                '${widget.thumbsUp}',
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -87,13 +174,13 @@ class _FooterState extends State<Footer> {
                 iconSize: 25,
                 icon: Icon(
                   Emotion.emo_displeased,
-                  color: (_isHeart ? Colors.lightBlue : Colors.blueGrey),
+                  color: (_isDispleased ? Colors.lightBlue : Colors.blueGrey),
                 ),
-                onPressed: () {},
+                onPressed: () => _toggleReaction('displeased'),
               ),
             ),
             Text(
-              '$_hearts',
+              '${widget.displeased}',
               style: TextStyle(
                 color: Colors.grey,
               ),
@@ -107,13 +194,13 @@ class _FooterState extends State<Footer> {
                 iconSize: 25,
                 icon: Icon(
                   Emotion.emo_angry,
-                  color: (_isHeart ? Colors.lightBlue : Colors.blueGrey),
+                  color: (_isAngry ? Colors.lightBlue : Colors.blueGrey),
                 ),
-                onPressed: () {},
+                onPressed: () => _toggleReaction('angry'),
               ),
             ),
             Text(
-              '$_hearts',
+              '${widget.angry}',
               style: TextStyle(
                 color: Colors.grey,
               ),
@@ -127,13 +214,13 @@ class _FooterState extends State<Footer> {
                 iconSize: 25,
                 icon: Icon(
                   Emotion.emo_cry,
-                  color: (_isHeart ? Colors.lightBlue : Colors.blueGrey),
+                  color: (_isSad ? Colors.lightBlue : Colors.blueGrey),
                 ),
-                onPressed: () {},
+                onPressed: () => _toggleReaction('sad'),
               ),
             ),
             Text(
-              '$_hearts',
+              '${widget.sad}',
               style: TextStyle(
                 color: Colors.grey,
               ),
