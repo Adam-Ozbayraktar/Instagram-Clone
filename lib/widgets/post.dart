@@ -6,6 +6,7 @@ import 'dart:math';
 import './footer.dart';
 import './image.dart';
 import './altfooter.dart';
+
 class Post extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -108,7 +109,13 @@ class Post extends StatelessWidget {
                   ),
                 ),
               ),
-              AltFooter(),
+              AltFooter(
+                hearts: randomNumber.nextInt(100),
+                thumbsUp: randomNumber.nextInt(100),
+                displeased: randomNumber.nextInt(100),
+                angry: randomNumber.nextInt(100),
+                sad: randomNumber.nextInt(100),
+              ),
               // Footer(
               //   hearts: randomNumber.nextInt(100),
               //   thumbsUp: randomNumber.nextInt(100),
@@ -120,7 +127,7 @@ class Post extends StatelessWidget {
           ),
         );
       },
-      itemCount: 2,
+      itemCount: 9,
     );
   }
 }
@@ -134,13 +141,12 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        child: Center(
-          child: Image.asset('assets/images/profile/$index.jpg'),
-        ),
-        onTap: () {
-          Navigator.pop(context);
-        }
-      ),
+          child: Center(
+            child: Image.asset('assets/images/profile/$index.jpg'),
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          }),
     );
   }
 }
