@@ -17,7 +17,8 @@ class AltFooter extends StatefulWidget {
 
 class _AltFooterState extends State<AltFooter> {
   List<bool> isSelected;
-
+  var prevState = -1;
+  var currState = -1;
   @override
   void initState() {
     isSelected = [false, false, false, false, false];
@@ -25,7 +26,63 @@ class _AltFooterState extends State<AltFooter> {
   }
 
   void addReaction(index) {
-    if (isSelected[index] == false) {
+    currState = index;
+    if (prevState == -1) {
+      switch (index) {
+        case 0:
+          {
+            widget.hearts += 1;
+          }
+          break;
+        case 1:
+          {
+            widget.thumbsUp += 1;
+          }
+          break;
+        case 2:
+          {
+            widget.displeased += 1;
+          }
+          break;
+        case 3:
+          {
+            widget.angry += 1;
+          }
+          break;
+        case 4:
+          {
+            widget.sad += 1;
+          }
+          break;
+      }
+    } else if (prevState != -1 && currState != prevState) {
+      switch (prevState) {
+        case 0:
+          {
+            widget.hearts -= 1;
+          }
+          break;
+        case 1:
+          {
+            widget.thumbsUp -= 1;
+          }
+          break;
+        case 2:
+          {
+            widget.displeased -= 1;
+          }
+          break;
+        case 3:
+          {
+            widget.angry -= 1;
+          }
+          break;
+        case 4:
+          {
+            widget.sad -= 1;
+          }
+          break;
+      }
       switch (index) {
         case 0:
           {
@@ -54,37 +111,8 @@ class _AltFooterState extends State<AltFooter> {
           break;
       }
     }
+    prevState = currState;
   }
-
-  // void removeReaction(index) {
-  //   switch (index) {
-  //     case 0:
-  //       {
-  //         widget.hearts -= 1;
-  //       }
-  //       break;
-  //     case 1:
-  //       {
-  //         widget.thumbsUp -= 1;
-  //       }
-  //       break;
-  //     case 2:
-  //       {
-  //         widget.displeased -= 1;
-  //       }
-  //       break;
-  //     case 3:
-  //       {
-  //         widget.angry -= 1;
-  //       }
-  //       break;
-  //     case 4:
-  //       {
-  //         widget.sad -= 1;
-  //       }
-  //       break;
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

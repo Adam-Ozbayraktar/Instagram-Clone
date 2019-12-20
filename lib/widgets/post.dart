@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/widgets/togglefooter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:photo_view/photo_view.dart';
 import 'dart:math';
@@ -6,6 +7,7 @@ import 'dart:math';
 import './footer.dart';
 import './image.dart';
 import './altfooter.dart';
+import './togglefooter.dart';
 
 class Post extends StatelessWidget {
   @override
@@ -109,13 +111,17 @@ class Post extends StatelessWidget {
                   ),
                 ),
               ),
-              AltFooter(
-                hearts: randomNumber.nextInt(100),
-                thumbsUp: randomNumber.nextInt(100),
-                displeased: randomNumber.nextInt(100),
-                angry: randomNumber.nextInt(100),
-                sad: randomNumber.nextInt(100),
+              GradientIconButtons(
+                reaction_1: randomNumber.nextInt(100),
+                reaction_2: randomNumber.nextInt(100),
               ),
+              // AltFooter(
+              //   hearts: randomNumber.nextInt(100),
+              //   thumbsUp: randomNumber.nextInt(100),
+              //   displeased: randomNumber.nextInt(100),
+              //   angry: randomNumber.nextInt(100),
+              //   sad: randomNumber.nextInt(100),
+              // ),
               // Footer(
               //   hearts: randomNumber.nextInt(100),
               //   thumbsUp: randomNumber.nextInt(100),
