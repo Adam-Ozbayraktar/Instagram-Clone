@@ -18,9 +18,9 @@ class Post extends StatelessWidget {
         return Card(
           child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 30,
-              ),
+              // SizedBox(
+              //   height: 20,
+              // ),
               Container(
                 // color: Colors.black,
                 child: Row(

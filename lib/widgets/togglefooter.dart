@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../emotion_icons.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class GradientIconButtons extends StatefulWidget {
   int reaction_1;
@@ -134,9 +135,14 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
 
   var selectedGradient_1 = LinearGradient(
     colors: [
-      Color.fromRGBO(131, 58, 180, 1),
-      Color.fromRGBO(253, 29, 29, 1),
-      Color.fromRGBO(252, 176, 69, 1),
+      // Color.fromRGBO(131, 58, 180, 1),
+      // Color.fromRGBO(253, 29, 29, 1),
+      // Color.fromRGBO(252, 176, 69, 1),
+      Color.fromRGBO(255, 163, 192, 1),
+      Color.fromRGBO(255, 239, 152, 1),
+      Color.fromRGBO(150, 255, 163, 1),
+      Color.fromRGBO(47, 255, 231, 1),
+      Color.fromRGBO(184, 175, 252, 1),
     ],
   );
 
@@ -151,17 +157,19 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             ShaderMask(
               shaderCallback: (bounds) => gradient_1.createShader(
-                Rect.fromLTWH(0, 0, 45, 50),
+                Rect.fromLTWH(0, 0, 40, 50),
               ),
               child: IconButton(
-                iconSize: 25,
-                icon: Icon(Emotion.emo_happy),
+                iconSize: 40,
+                icon: Icon(
+                    buttonSelected_1 ? MdiIcons.heart : MdiIcons.heartOutline),
                 color: Colors.white,
                 onPressed: () {
                   setState(() {
@@ -180,16 +188,18 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
                 },
               ),
             ),
-            SizedBox(
-              width: 170,
-            ),
+            // SizedBox(
+            //   width: 0,
+            // ),
             ShaderMask(
               shaderCallback: (bounds) => gradient_2.createShader(
                 Rect.fromLTWH(0, 0, 45, 50),
               ),
               child: IconButton(
-                iconSize: 30,
-                icon: Icon(Emotion.emo_cry),
+                iconSize: 40,
+                icon: Icon(buttonSelected_2
+                    ? MdiIcons.heartBroken
+                    : MdiIcons.heartBrokenOutline),
                 color: Colors.white,
                 onPressed: () {
                   setState(() {
@@ -208,11 +218,38 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
                 },
               ),
             ),
+            SizedBox(
+              width: 130,
+            ),
+            IconButton(
+              icon: Icon(
+                MdiIcons.messageOutline,
+                size: 30,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(
+                MdiIcons.sendOutline,
+                size: 30,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.bookmark_border,
+                size: 35,
+              ),
+              onPressed: () {},
+            ),
           ],
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            SizedBox(
+              width: 16,
+            ),
             Text(
               '${widget.reaction_1}',
               style: TextStyle(
@@ -221,7 +258,7 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
               ),
             ),
             SizedBox(
-              width: 200,
+              width: 40,
             ),
             Text(
               '${widget.reaction_2}',
@@ -232,6 +269,80 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
             ),
           ],
         ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'genericuser',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              width: 2,
+            ),
+            Text(
+              'This is a insightful description of the photo',
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'above. Whatever the photo may be, I am sure it will ',
+            ),
+          ],
+        ),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'inspire you and motivate you.',
+            ),
+          ],
+        ),
+        SizedBox(height: 5),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'View all 56 comments',
+              style: TextStyle(
+                color: Colors.grey[500],
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 5),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              '5 hours ago',
+              style: TextStyle(
+                color: Colors.grey[500],
+                fontSize: 11,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+              height: 10,
+            ),
       ],
     );
   }
