@@ -17,7 +17,7 @@ class Post extends StatelessWidget {
       children: <Widget>[
         Container(
           // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          height: 80,
+          height: 90,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 9,
@@ -26,12 +26,13 @@ class Post extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    width: 60,
-                    height: 60,
+                    width: 70,
+                    height: 70,
                     child: index == 0
                         ? Stack(
                             children: <Widget>[
                               CircleAvatar(
+                                backgroundColor: Colors.green,
                                 backgroundImage: AssetImage(
                                     'assets/images/profile/$index.jpg'),
                                 radius: 35,
@@ -54,10 +55,37 @@ class Post extends StatelessWidget {
                               ),
                             ],
                           )
-                        : CircleAvatar(
-                            backgroundImage:
-                                AssetImage('assets/images/profile/$index.jpg'),
-                            radius: 35,
+                        // : CircleAvatar(
+                        //     backgroundImage:
+                        //         AssetImage('assets/images/profile/$index.jpg'),
+                        //     radius: 35,
+                        //   ),
+                        : Stack(
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                    width: 2,
+                                  ),
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: CircleAvatar(
+                                    radius: 35,
+                                    backgroundImage: AssetImage(
+                                        'assets/images/profile/$index.jpg'),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                   ),
                   Container(
