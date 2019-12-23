@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import './widgets/post.dart';
+import './fontAwesome.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,30 +22,51 @@ class MyHomePage extends StatelessWidget {
       bottomNavigationBar: Container(
         height: 50,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            SizedBox(width: 15),
             IconButton(
               icon: Icon(
                 MdiIcons.homeOutline,
+                size: 35,
               ),
               onPressed: () {},
             ),
+            SizedBox(width: 34),
             IconButton(
               icon: Icon(
                 Icons.search,
+                size: 35,
               ),
               onPressed: () {},
             ),
+            SizedBox(width: 34),
             IconButton(
               icon: Icon(
-                MdiIcons.homeOutline,
+                MdiIcons.plusBoxOutline,
+                size: 35,
               ),
               onPressed: () {},
+            ),
+            SizedBox(width: 34),
+            IconButton(
+              icon: Icon(
+                MdiIcons.heartOutline,
+                size: 35,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(width: 40),
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/images/profile/3.jpg'),
+              radius: 15,
             ),
           ],
         ),
       ),
       appBar: PreferredSize(
-        preferredSize: Size(null, 35),
+        preferredSize: Size(null, 45),
         child: Container(
           margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
           // centerTitle: false,
@@ -86,8 +108,8 @@ class MyHomePage extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(
-                  MdiIcons.sendOutline,
-                  size: 30,
+                  FontAwesome.paper_plane_empty,
+                  size: 26,
                 ),
                 onPressed: () {},
               ),

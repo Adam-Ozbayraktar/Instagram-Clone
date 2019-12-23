@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../emotion_icons.dart';
+import '../fontAwesome.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class GradientIconButtons extends StatefulWidget {
@@ -168,9 +169,9 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
               ),
               child: IconButton(
                 iconSize: 40,
-                icon: Icon(
-                    buttonSelected_1 ? MdiIcons.heart : MdiIcons.heartOutline),
-                color: Colors.white,
+                icon: buttonSelected_1 ? 
+                  Icon(MdiIcons.heart, color: Colors.white) :
+                  Icon(MdiIcons.heartOutline, color: Colors.black), 
                 onPressed: () {
                   setState(() {
                     if (buttonSelected_1) {
@@ -197,10 +198,13 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
               ),
               child: IconButton(
                 iconSize: 40,
-                icon: Icon(buttonSelected_2
-                    ? MdiIcons.heartBroken
-                    : MdiIcons.heartBrokenOutline),
-                color: Colors.white,
+                icon: buttonSelected_2 ? 
+                  Icon(MdiIcons.heartBroken, color: Colors.white) :
+                  Icon(MdiIcons.heartBrokenOutline, color: Colors.black),  
+                // icon: Icon(buttonSelected_2
+                //     ? MdiIcons.heartBroken, color: Colors.white,),
+                //     : MdiIcons.heartBrokenOutline, color: Colo),
+                // color: Colors.white,
                 onPressed: () {
                   setState(() {
                     if (buttonSelected_2) {
@@ -223,21 +227,21 @@ class _GradientIconButtonsState extends State<GradientIconButtons> {
             ),
             IconButton(
               icon: Icon(
-                MdiIcons.messageOutline,
+                FontAwesome.comment_empty,
                 size: 30,
               ),
               onPressed: () {},
             ),
             IconButton(
               icon: Icon(
-                MdiIcons.sendOutline,
+                FontAwesome.paper_plane_empty,
                 size: 30,
               ),
               onPressed: () {},
             ),
             IconButton(
               icon: Icon(
-                Icons.bookmark_border,
+                FontAwesome.bookmark_empty,
                 size: 35,
               ),
               onPressed: () {},

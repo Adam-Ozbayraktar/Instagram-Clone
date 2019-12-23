@@ -62,6 +62,9 @@ flutter:
     - family: Emotion
       fonts:
         - asset: assets/icons/Emotion.ttf
+    - family: FontAwesome
+      fonts: 
+        - asset: assets/icons/FontAwesome.ttf
     - family: Acme
       fonts:
         - asset: assets/fonts/Acme-Regular.ttf
