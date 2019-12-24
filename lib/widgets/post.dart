@@ -17,7 +17,7 @@ class Post extends StatelessWidget {
       children: <Widget>[
         Container(
           // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          height: 100,
+          height: 80,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 9,
@@ -26,8 +26,8 @@ class Post extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    width: 80,
-                    height: 80,
+                    width: 60,
+                    height: 60,
                     child: index == 0
                         ? Stack(
                             children: <Widget>[
@@ -71,8 +71,8 @@ class Post extends StatelessWidget {
                         //     radius: 35,
                         //   ),
                         : Container(
-                            height: 70,
-                            width: 70,
+                            height: 30,
+                            width: 30,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               gradient: LinearGradient(
@@ -98,7 +98,7 @@ class Post extends StatelessWidget {
                                     ),
                                   ),
                                   child: CircleAvatar(
-                                    radius: 35,
+                                    radius: 25,
                                     backgroundImage: AssetImage(
                                         'assets/images/profile/$index.jpg'),
                                   ),
