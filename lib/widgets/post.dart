@@ -17,7 +17,7 @@ class Post extends StatelessWidget {
       children: <Widget>[
         Container(
           // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          height: 90,
+          height: 100,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 9,
@@ -26,8 +26,8 @@ class Post extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    width: 70,
-                    height: 70,
+                    width: 80,
+                    height: 80,
                     child: index == 0
                         ? Stack(
                             children: <Widget>[
@@ -38,20 +38,30 @@ class Post extends StatelessWidget {
                                 radius: 35,
                               ),
                               Positioned(
-                                top: 41,
-                                left: 40,
-                                child: Stack(children: <Widget>[
-                                  Icon(
-                                    MdiIcons.circle,
-                                    size: 19,
+                                top: 50,
+                                left: 49,
+                                child: Container(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        color: Colors.white, width: 0),
                                   ),
-                                  Icon(
-                                    Icons.add_circle,
-                                    size: 20,
-                                    color: Colors.blue,
+                                  child: Stack(
+                                    children: <Widget>[
+                                      Icon(
+                                        MdiIcons.circle,
+                                        size: 19,
+                                        color: Colors.white,
+                                      ),
+                                      Icon(
+                                        Icons.add_circle,
+                                        size: 20,
+                                        color: Colors.blue,
+                                      ),
+                                    ],
                                   ),
-                                ]),
+                                ),
                               ),
                             ],
                           )
@@ -60,17 +70,26 @@ class Post extends StatelessWidget {
                         //         AssetImage('assets/images/profile/$index.jpg'),
                         //     radius: 35,
                         //   ),
-                        : Stack(
-                            children: <Widget>[
-                              Container(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: Colors.grey,
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Container(
+                        : Container(
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromRGBO(131, 58, 180, 1),
+                                  Color.fromRGBO(193, 58, 180, 1),
+                                  Color.fromRGBO(253, 29, 29, 1),
+                                  Color.fromRGBO(245, 96, 64, 1),
+                                  Color.fromRGBO(247, 119, 55, 1),
+                                  Color.fromRGBO(252, 176, 69, 1),
+                                ],
+                              ),
+                            ),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[
+                                Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(
@@ -84,9 +103,36 @@ class Post extends StatelessWidget {
                                         'assets/images/profile/$index.jpg'),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
+                    // : Stack(
+                    //     children: <Widget>[
+                    //       Container(
+                    //         decoration: BoxDecoration(
+                    //           shape: BoxShape.circle,
+                    //           border: Border.all(
+                    //             color: Colors.grey,
+                    //             width: 2,
+                    //           ),
+                    //         ),
+                    //         child: Container(
+                    //           decoration: BoxDecoration(
+                    //             shape: BoxShape.circle,
+                    //             border: Border.all(
+                    //               color: Colors.white,
+                    //               width: 2,
+                    //             ),
+                    //           ),
+                    //           child: CircleAvatar(
+                    //             radius: 35,
+                    //             backgroundImage: AssetImage(
+                    //                 'assets/images/profile/$index.jpg'),
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
