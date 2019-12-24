@@ -17,29 +17,34 @@ class Post extends StatelessWidget {
       children: <Widget>[
         Container(
           // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          height: 80,
+          height: 90,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 9,
             itemBuilder: (ctx, index) {
               return Column(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    width: 60,
-                    height: 60,
-                    child: index == 0
-                        ? Stack(
+                  // Container(
+                  //   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  //   width: 60,
+                  //   height: 60,
+                  index == 0
+                      ? Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          width: 70,
+                          height: 70,
+                          child: Stack(
                             children: <Widget>[
                               CircleAvatar(
                                 backgroundColor: Colors.green,
                                 backgroundImage: AssetImage(
                                     'assets/images/profile/$index.jpg'),
-                                radius: 35,
+                                radius: 32,
                               ),
                               Positioned(
-                                top: 50,
-                                left: 49,
+                                top: 45,
+                                left: 44,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
@@ -64,76 +69,78 @@ class Post extends StatelessWidget {
                                 ),
                               ),
                             ],
-                          )
-                        // : CircleAvatar(
-                        //     backgroundImage:
-                        //         AssetImage('assets/images/profile/$index.jpg'),
-                        //     radius: 35,
-                        //   ),
-                        : Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromRGBO(131, 58, 180, 1),
-                                  Color.fromRGBO(193, 58, 180, 1),
-                                  Color.fromRGBO(253, 29, 29, 1),
-                                  Color.fromRGBO(245, 96, 64, 1),
-                                  Color.fromRGBO(247, 119, 55, 1),
-                                  Color.fromRGBO(252, 176, 69, 1),
-                                ],
-                              ),
-                            ),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: <Widget>[
-                                Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: Colors.white,
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: CircleAvatar(
-                                    radius: 25,
-                                    backgroundImage: AssetImage(
-                                        'assets/images/profile/$index.jpg'),
-                                  ),
-                                ),
+                          ),
+                        )
+                      // : CircleAvatar(
+                      //     backgroundImage:
+                      //         AssetImage('assets/images/profile/$index.jpg'),
+                      //     radius: 35,
+                      //   ),
+                      : Container(
+                          margin: EdgeInsets.fromLTRB(7, 0, 5, 0),
+                          height: 70,
+                          width: 70,
+
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromRGBO(131, 58, 180, 1),
+                                Color.fromRGBO(193, 58, 180, 1),
+                                Color.fromRGBO(253, 29, 29, 1),
+                                Color.fromRGBO(245, 96, 64, 1),
+                                Color.fromRGBO(247, 119, 55, 1),
+                                Color.fromRGBO(252, 176, 69, 1),
                               ],
                             ),
                           ),
-                    // : Stack(
-                    //     children: <Widget>[
-                    //       Container(
-                    //         decoration: BoxDecoration(
-                    //           shape: BoxShape.circle,
-                    //           border: Border.all(
-                    //             color: Colors.grey,
-                    //             width: 2,
-                    //           ),
-                    //         ),
-                    //         child: Container(
-                    //           decoration: BoxDecoration(
-                    //             shape: BoxShape.circle,
-                    //             border: Border.all(
-                    //               color: Colors.white,
-                    //               width: 2,
-                    //             ),
-                    //           ),
-                    //           child: CircleAvatar(
-                    //             radius: 35,
-                    //             backgroundImage: AssetImage(
-                    //                 'assets/images/profile/$index.jpg'),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                  ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 2,
+                                  ),
+                                ),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage: AssetImage(
+                                      'assets/images/profile/$index.jpg'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                  // : Stack(
+                  //     children: <Widget>[
+                  //       Container(
+                  //         decoration: BoxDecoration(
+                  //           shape: BoxShape.circle,
+                  //           border: Border.all(
+                  //             color: Colors.grey,
+                  //             width: 2,
+                  //           ),
+                  //         ),
+                  //         child: Container(
+                  //           decoration: BoxDecoration(
+                  //             shape: BoxShape.circle,
+                  //             border: Border.all(
+                  //               color: Colors.white,
+                  //               width: 2,
+                  //             ),
+                  //           ),
+                  //           child: CircleAvatar(
+                  //             radius: 35,
+                  //             backgroundImage: AssetImage(
+                  //                 'assets/images/profile/$index.jpg'),
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                     child: Text(
